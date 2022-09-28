@@ -1,0 +1,54 @@
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Email Data Reader</h4>
+  </div>
+  <div class="modal-body">
+    <p class="max-width">
+      From: {{ email.from | lowercase }} <br>
+      To: {{ email.to | lowercase }} <br>
+      Subject: {{ email.subject }} <br>
+      Body: <br>
+      <textarea class="text-area" rows="8" readonly>{{ email.body }}</textarea>
+    </p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-light" (click)="modal.dismiss()">Close</button>
+  </div>
+</ng-template>
+
+<div class="container">
+    <h1 class="margin-top-20">Email reader, Matteo Fornara 222727</h1>
+    <form>
+        <div class="form-group margin-top-20">
+          <label>From</label>
+          <input name="from" type="email" class="form-control" placeholder="name@example.com" [(ngModel)]="email.from">
+        </div>
+        <div class="form-group margin-top-20">
+          <label>To</label>
+          <input name="to" type="email" class="form-control" placeholder="name@example.com" [(ngModel)]="email.to">
+        </div>
+        <div class="form-group margin-top-20">
+          <label>Subject</label>
+          <input name="subject" type="email" class="form-control" [(ngModel)]="email.subject">
+        </div>
+        <div class="form-group margin-top-20">
+          <label>Body</label>
+          <textarea name="body" class="form-control" rows="3" [(ngModel)]="email.body"></textarea>
+        </div>
+    </form>
+
+    <h3 class="margin-top-20">Up-to-date viewer:</h3>
+    <p class="max-width margin-top-20">
+      From: {{ email.from | lowercase }} <br>
+      To: {{ email.to | lowercase }} <br>
+      Subject: {{ email.subject }} <br>
+      Body: <br>
+    </p>
+    <textarea class="text-area viewer form-control" rows="4" readonly>{{ email.body }}</textarea>
+
+    <div class="flex-justify">
+      <button (click)="open(content)" type="button" class="btn btn-primary width-150">Send</button>
+      <button (click)="clean()" type="button" class="btn btn-primary width-150">Clean</button>
+    </div>
+    
+</div>

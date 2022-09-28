@@ -1,0 +1,32 @@
+.container {
+    width: 1000px;
+    margin: 1% auto;
+    margin-bottom: 500px;
+}
+
+.flex-justify {
+    display: flex;
+    justify-content: space-around;
+}
+
+.margin-top-20 {
+    margin-top: 20px;
+}
+
+.width-150 {
+    width: 150px;
+}
+
+.valid-border {
+    border-left: 10px green solid;
+}
+
+.invalid-border {
+    border-left: 10px yellow solid;
+}
+
+.empty-message {
+    color: red;
+    font-weight: 600;
+    font-size: large;
+}

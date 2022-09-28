@@ -1,0 +1,72 @@
+
+<div class="container">
+    <h1 class="margin-top-20">Email reader form and list, Matteo Fornara 222727</h1>
+    <form #mailForm="ngForm" (ngSubmit)="sendForm()">
+        <div class="form-group margin-top-20">
+            <label>From</label>
+            <input appHighlight required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" name="from" type="email" class="form-control" 
+               placeholder="name@example.com" [(ngModel)]="email.from" #from="ngModel" [ngClass]="from.valid ? 'valid-border': 'invalid-border'">
+        
+            <div class="alert alert-danger" *ngIf="from.touched && !from.valid">
+                <div *ngIf="from.errors && from.errors['required']">Sender email is required.</div>
+                <div *ngIf="from.errors && from.errors['pattern']">Email does not match the required pattern.</div>
+            </div>
+        </div>
+        <div class="form-group margin-top-20">
+            <label>To</label>
+            <input appHighlight required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" name="to" type="email" class="form-control" 
+                placeholder="name@example.com" [(ngModel)]="email.to" #to="ngModel" [ngClass]="to.valid ? 'valid-border': 'invalid-border'">
+            <div class="alert alert-danger" *ngIf="to.touched && !to.valid">
+                <div *ngIf="to.errors && to.errors['required']">Receiver email is required.</div>
+                <div *ngIf="to.errors && to.errors['pattern']">Email does not match the required pattern.</div>
+            </div>
+        </div>
+        <div class="form-group margin-top-20">
+            <label>Subject</label>
+            <input appHighlight required minlength="10" maxlength="50" name="subject" type="email" class="form-control" 
+                [(ngModel)]="email.subject" #subject="ngModel" [ngClass]="subject.valid ? 'valid-border': 'invalid-border'">
+            <div class="alert alert-danger" *ngIf="subject.touched && !subject.valid">
+                <div *ngIf="subject.errors && subject.errors['required']">Subject is required.</div>
+                <div *ngIf="subject.errors && subject.errors['minlength']">Name must be at least 10 characters long.</div>
+            </div>
+        </div>
+        <div class="form-group margin-top-20">
+            <label>Body</label>
+            <textarea appHighlight name="body" class="form-control" rows="3" [(ngModel)]="email.body"></textarea>
+        </div>
+
+        <div class="flex-justify margin-top-20">
+            <button type="submit" [disabled]="!mailForm.form.valid" class="btn btn-primary width-150">Submit</button>
+            <button type="button" class="btn btn-primary width-150" (click)="clear()">Clean</button>
+        </div>
+    </form>
+
+    <h3 class="margin-top-20"> Submitted emails </h3>
+    Text: <input type="text" class="form-control" [(ngModel)]="term">
+    <div class="margin-top-20">Only with body: <input type="checkbox" [(ngModel)]="withBody"></div>
+    <table class="table table-striped margin-top-20" *ngIf="this.emailsList?.length != 0, else nothingToShowDiv">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">To</th>
+                <th scope="col">Subject</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let mail of emailsList | filter:term | withBodyFilter:withBody ; index as i">
+                <th scope="row">{{ i + 1 }}</th>
+                <td>{{ mail.to }}</td>
+                <td>{{ mail.subject }}</td>
+                <td>
+                    <button type="delete" class="btn btn-danger" (click)="deleteMail(mail.id)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ng-template #nothingToShowDiv>
+        <label class="empty-message margin-top-20">The list of emails is empty</label>
+    </ng-template>
+    
+</div>

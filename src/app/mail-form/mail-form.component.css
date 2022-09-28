@@ -1,0 +1,39 @@
+.container {
+    width: 1000px;
+    margin: 1% auto;
+    /* margin-top: 100px; */
+}
+
+.margin-top-20 {
+    margin-top: 20px;
+}
+
+.width-150 {
+    width: 150px;
+}
+
+.flex-justify {
+    display: flex;
+    justify-content: space-around;
+}
+
+.max-width {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden; 
+}
+
+.text-area {
+    width: 100%;
+    resize: none;
+}
+
+.viewer {
+    margin-top: -15px;
+    border-color: white !important;
+}
+.viewer:focus {
+    margin-top: -15px;
+    border-color: white !important;
+    box-shadow: none !important;
+}

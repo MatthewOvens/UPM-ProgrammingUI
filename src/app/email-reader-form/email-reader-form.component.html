@@ -1,6 +1,9 @@
 
 <div class="container">
-    <h1 class="margin-top-20">Email reader form and list, Matteo Fornara 222727</h1>
+    <div class="d-flex justify-content-between align-items-center">
+        <h1>Email writer form, Matteo Fornara 222727</h1>
+        <button type="button" class="btn btn-outline-primary" routerLink="/list">Back</button>
+    </div>
     <form #mailForm="ngForm" (ngSubmit)="sendForm()">
         <div class="form-group margin-top-20">
             <label>From</label>
@@ -40,7 +43,8 @@
             <button type="button" class="btn btn-primary width-150" (click)="clear()">Clean</button>
         </div>
     </form>
-
+    
+<!-- FOR 3 ASSIGNMENT
     <h3 class="margin-top-20"> Submitted emails </h3>
     Text: <input type="text" class="form-control" [(ngModel)]="term">
     <div class="margin-top-20">Only with body: <input type="checkbox" [(ngModel)]="withBody"></div>
@@ -67,6 +71,6 @@
 
     <ng-template #nothingToShowDiv>
         <label class="empty-message margin-top-20">The list of emails is empty</label>
-    </ng-template>
+    </ng-template> -->
     
 </div>

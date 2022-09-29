@@ -1,0 +1,19 @@
+.container {
+    width: 1000px;
+    margin: 1% auto;
+    margin-bottom: 500px;
+}
+
+.margin-top-40 {
+    margin-top: 40px;
+}
+
+.margin-top-20 {
+    margin-top: 20px;
+}
+
+.empty-message {
+    color: red;
+    font-weight: 600;
+    font-size: large;
+}

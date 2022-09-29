@@ -1,4 +1,6 @@
+import { EmailService } from './../services/email.service';
 import { Component, OnInit } from '@angular/core';
+import { Email } from '../utils/interfaces/Email';
 
 @Component({
   selector: 'app-emails-list',
@@ -7,9 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EmailsListComponent implements OnInit {
 
-  constructor() { }
+  id: number = 3;
+
+  //Array of Email to store the sended mails during the session
+  emailsList?: Email[] | undefined;
+
+  constructor(private emailService: EmailService) {
+
+    //Populating the email list with emails from the service
+    this.emailsList = this.emailService.getAllEmails();
+
+  }
 
   ngOnInit(): void {
+  }
+
+  //Funtion to delete a selected email from the service
+  deleteMail(id: number) {
+    this.emailService.deleteMail(id);
   }
 
 }

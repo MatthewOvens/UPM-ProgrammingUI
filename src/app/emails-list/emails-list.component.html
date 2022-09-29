@@ -1,1 +1,39 @@
-<p>emails-list works!</p>
+
+<div class="container">
+
+    <h1 class="margin-top-20">Email list, Matteo Fornara 222727</h1>
+
+    <div class="d-flex justify-content-center align-items-center margin-top-40">
+        <button class="btn btn-primary" [routerLink]="['/form']">Create new mail</button>
+    </div>
+    
+    <table class="table table-striped margin-top-20" *ngIf="this.emailsList?.length != 0, else nothingToShowDiv">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">To</th>
+                <th scope="col">Subject</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let mail of emailsList ; index as i">
+                <th scope="row">{{ i + 1 }}</th>
+                <td>{{ mail.to }}</td>
+                <td>{{ mail.subject }}</td>
+                <td>
+                    <button class="btn btn-primary" [routerLink]="['/viewer/' + mail.id]">View Mail</button>    
+                </td>
+                <td>
+                    <button type="delete" class="btn btn-danger" (click)="deleteMail(mail.id)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <ng-template #nothingToShowDiv>
+        <label class="empty-message margin-top-20">The list of emails is empty</label>
+    </ng-template>
+    
+</div>

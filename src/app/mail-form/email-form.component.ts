@@ -4,10 +4,10 @@ import { Email } from '../utils/interfaces/Email';
 
 @Component({
   selector: 'app-mail-form',
-  templateUrl: './mail-form.component.html',
-  styleUrls: ['./mail-form.component.css']
+  templateUrl: './email-form.component.html',
+  styleUrls: ['./email-form.component.css']
 })
-export class MailFormComponent implements OnInit {
+export class EmailFormComponent implements OnInit {
 
   email: Email = {
     id: 0,

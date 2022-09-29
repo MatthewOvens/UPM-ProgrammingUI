@@ -1,5 +1,7 @@
+import { EmailService } from './../services/email.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Email } from '../utils/interfaces/Email';
 
 @Component({
   selector: 'app-email-viewer',
@@ -8,19 +10,17 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class EmailViewerComponent implements OnInit {
 
-  emailId? : string | null;
+  actualEmail?: Email;
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private emailService: EmailService) { }
 
   ngOnInit(): void {
 
     this.route.paramMap.subscribe(params => {
-
-      //Debug
-      console.log(params);
-      
-      this.emailId = params.get('value');
-      
+      let emailId = params.get('value');
+      if(emailId) {
+        this.actualEmail = this.emailService.getEmail(parseInt(emailId));
+      }
     })
   }
 

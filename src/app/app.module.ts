@@ -12,6 +12,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { WithBodyFilterPipe } from './pipes/with-body-filter.pipe';
 import { EmailsListComponent } from './emails-list/emails-list.component';
 import { EmailViewerComponent } from './email-viewer/email-viewer.component';
+import { ErrorPageComponent } from './error-page/error-page.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { EmailViewerComponent } from './email-viewer/email-viewer.component';
     HighlightDirective,
     WithBodyFilterPipe,
     EmailsListComponent,
-    EmailViewerComponent
+    EmailViewerComponent,
+    ErrorPageComponent
   ],
   imports: [
     BrowserModule,

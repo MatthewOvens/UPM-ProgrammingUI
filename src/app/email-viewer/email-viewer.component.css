@@ -1,0 +1,16 @@
+
+.container {
+    width: 500px;
+    margin: 1% auto;
+    margin-bottom: 500px;
+}
+
+.value-container {
+    border: 1px black solid;
+    border-radius: 5px;
+    min-height: 30px;
+}
+
+.margin-top-20 {
+    margin-top: 20px;
+}

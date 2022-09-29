@@ -10,6 +10,8 @@ import { EmailReaderFormComponent } from './email-reader-form/email-reader-form.
 import { HighlightDirective } from './utils/directives/highlight.directive';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { WithBodyFilterPipe } from './pipes/with-body-filter.pipe';
+import { EmailsListComponent } from './emails-list/emails-list.component';
+import { EmailViewerComponent } from './email-viewer/email-viewer.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { WithBodyFilterPipe } from './pipes/with-body-filter.pipe';
     EmailFormComponent,
     EmailReaderFormComponent,
     HighlightDirective,
-    WithBodyFilterPipe
+    WithBodyFilterPipe,
+    EmailsListComponent,
+    EmailViewerComponent
   ],
   imports: [
     BrowserModule,

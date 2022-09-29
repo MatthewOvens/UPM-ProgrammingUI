@@ -1,7 +1,7 @@
 
 <div class="container">
     <div class="d-flex justify-content-between align-items-center">
-        <h1>Email writer form, Matteo Fornara 222727</h1>
+        <h1>Email writer form</h1>
         <button type="button" class="btn btn-outline-primary" routerLink="/list">Back</button>
     </div>
     <form #mailForm="ngForm" (ngSubmit)="sendForm()">
@@ -43,7 +43,7 @@
             <button type="button" class="btn btn-primary width-150" (click)="clear()">Clean</button>
         </div>
     </form>
-    
+
 <!-- FOR 3 ASSIGNMENT
     <h3 class="margin-top-20"> Submitted emails </h3>
     Text: <input type="text" class="form-control" [(ngModel)]="term">

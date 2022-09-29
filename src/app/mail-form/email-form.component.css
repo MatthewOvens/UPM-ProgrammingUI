@@ -8,14 +8,6 @@
     height: 35px;
 }
 
-.margin-top-20 {
-    margin-top: 20px;
-}
-
-.width-150 {
-    width: 150px;
-}
-
 .flex-justify {
     display: flex;
     justify-content: space-around;
